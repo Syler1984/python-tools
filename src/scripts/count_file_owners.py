@@ -9,14 +9,14 @@ import sys
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--no-recursion', help='Disable folder recursion', action='store_true', type=bool)
+    parser.add_argument('--no-recursion', help='Disable folder recursion', action='store_true')
     parser.add_argument('--max-recursion', help='Maximum depth of folder recursion: negative value means infinite, '
                                                 '0 disables recursion (same as --no-recursion), positive number '
                                                 'indicates actual maximum depth of folder recursion; default: 5',
                         default=5, type=int)
     parser.add_argument('--file-regex', help='Set regular expression for files; default: ".*"',
                         default='.*', type=str)
-    parser.add_argument('path(s)', dest='path', nargs='+', help='Path(s) to a directory for file owners count',
+    parser.add_argument(metavar='file', dest='path', nargs='+', help='Path(s) to a directory for file owners count',
                         type=str)
 
     args = parser.parse_args()
