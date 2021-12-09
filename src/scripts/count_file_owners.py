@@ -7,6 +7,23 @@ python count_file_owners.py
 import argparse
 import sys
 
+
+def full_path(path):
+    """
+    Converts path from local to full. If path is already full, returns path without any changes.
+    """
+    pass
+
+
+def sort_paths(paths, duplicates=True):
+    """
+    Returns list with sorted paths by the depth, from deepest to the shallowest.
+    If duplicates set to False, will remove any duplicates.
+    Note: This function creates a copy of paths and does not change it.
+    """
+    pass
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--no-recursion', help='Disable folder recursion', action='store_true')
@@ -26,3 +43,6 @@ if __name__ == '__main__':
     print('\t', f'no_recursion: {args.no_recursion}')
     print('\t', f'max_recursion: {args.max_recursion}')
     print('\t', f'file_regex: {args.file_regex}')
+
+    paths = [full_path(x) for x in args.path]
+    paths = sort_paths(paths, duplicates=False)
